@@ -1,0 +1,265 @@
+{
+  "uid": "performance-lab",
+  "title": "Производительность HTTP · обычные и виртуальные потоки",
+  "timezone": "Asia/Yekaterinburg",
+  "schemaVersion": 41,
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "Rate · завершённые запросы в секунду",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lab-prom"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "min": 0,
+          "custom": {
+            "lineWidth": 2,
+            "spanNulls": false
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "/work/platform"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Обычные потоки"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "blue"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "/work/virtual"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Виртуальные потоки"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "green"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by (uri) (rate(http_server_requests_seconds_count{job=\"performance-lab\",uri=~\"/work/(platform|virtual)\"}[10s]))",
+          "legendFormat": "{{uri}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lab-prom"
+          },
+          "range": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "Errors · доля ответов HTTP 4xx и 5xx",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lab-prom"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "min": 0,
+          "custom": {
+            "lineWidth": 2,
+            "spanNulls": false,
+            "axisSoftMax": 1
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "/work/platform"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Обычные потоки"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "blue"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "/work/virtual"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Виртуальные потоки"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "green"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "100 * (sum by (uri) (rate(http_server_requests_seconds_count{job=\"performance-lab\",uri=~\"/work/(platform|virtual)\",status=~\"[45]..\"}[10s])) or on(uri) 0 * sum by (uri) (rate(http_server_requests_seconds_count{job=\"performance-lab\",uri=~\"/work/(platform|virtual)\"}[10s]))) / sum by (uri) (rate(http_server_requests_seconds_count{job=\"performance-lab\",uri=~\"/work/(platform|virtual)\"}[10s]))",
+          "legendFormat": "{{uri}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lab-prom"
+          },
+          "range": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "Duration · 95-й перцентиль",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lab-prom"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ms",
+          "min": 0,
+          "custom": {
+            "lineWidth": 2,
+            "spanNulls": false
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "/work/platform"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Обычные потоки"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "blue"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "/work/virtual"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Виртуальные потоки"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "green"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "1000 * histogram_quantile(0.95, sum by (uri, le) (rate(http_server_requests_seconds_bucket{job=\"performance-lab\",uri=~\"/work/(platform|virtual)\"}[10s])))",
+          "legendFormat": "{{uri}}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lab-prom"
+          },
+          "range": true
+        }
+      ]
+    }
+  ]
+}

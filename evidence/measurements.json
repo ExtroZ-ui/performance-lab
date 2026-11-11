@@ -1,0 +1,271 @@
+{
+  "clients": 96,
+  "load_seconds": 42,
+  "runtime_flags": {
+    "platform": {
+      "virtual": false
+    },
+    "virtual": {
+      "virtual": true
+    }
+  },
+  "grafana_version": "12.3.2",
+  "platform": {
+    "mode": "platform",
+    "started": 1794419298.9699287,
+    "ended": 1794419346.0262547,
+    "before": {
+      "count": 729,
+      "unix_seconds": 1794419314.0095263,
+      "monotonic_seconds": 14086.95107785,
+      "poll_ms": 58.675700000094366,
+      "url": "http://127.0.0.1:18080/actuator/metrics/http.server.requests?tag=uri%3A%2Fwork%2Fplatform",
+      "response": {
+        "name": "http.server.requests",
+        "baseUnit": "seconds",
+        "measurements": [
+          {
+            "statistic": "COUNT",
+            "value": 729.0
+          },
+          {
+            "statistic": "TOTAL_TIME",
+            "value": 986.3173329
+          },
+          {
+            "statistic": "MAX",
+            "value": 1.6578608
+          }
+        ],
+        "availableTags": [
+          {
+            "tag": "exception",
+            "values": [
+              "none"
+            ]
+          },
+          {
+            "tag": "method",
+            "values": [
+              "GET"
+            ]
+          },
+          {
+            "tag": "error",
+            "values": [
+              "none"
+            ]
+          },
+          {
+            "tag": "outcome",
+            "values": [
+              "SUCCESS"
+            ]
+          },
+          {
+            "tag": "status",
+            "values": [
+              "200"
+            ]
+          }
+        ]
+      }
+    },
+    "after": {
+      "count": 1325,
+      "unix_seconds": 1794419324.0412736,
+      "monotonic_seconds": 14096.982825,
+      "poll_ms": 3.6912000014126534,
+      "url": "http://127.0.0.1:18080/actuator/metrics/http.server.requests?tag=uri%3A%2Fwork%2Fplatform",
+      "response": {
+        "name": "http.server.requests",
+        "baseUnit": "seconds",
+        "measurements": [
+          {
+            "statistic": "COUNT",
+            "value": 1325.0
+          },
+          {
+            "statistic": "TOTAL_TIME",
+            "value": 1950.5641154
+          },
+          {
+            "statistic": "MAX",
+            "value": 1.6578608
+          }
+        ],
+        "availableTags": [
+          {
+            "tag": "exception",
+            "values": [
+              "none"
+            ]
+          },
+          {
+            "tag": "method",
+            "values": [
+              "GET"
+            ]
+          },
+          {
+            "tag": "error",
+            "values": [
+              "none"
+            ]
+          },
+          {
+            "tag": "outcome",
+            "values": [
+              "SUCCESS"
+            ]
+          },
+          {
+            "tag": "status",
+            "values": [
+              "200"
+            ]
+          }
+        ]
+      }
+    },
+    "window_seconds": 10.03174714999841,
+    "requests": 596,
+    "requests_per_second": 59.41138578239529,
+    "jmeter": {
+      "total": 2534,
+      "failures": 0,
+      "window_count": 597,
+      "window_p95_ms": 1629
+    }
+  },
+  "virtual": {
+    "mode": "virtual",
+    "started": 1794419358.0588527,
+    "ended": 1794419403.5486639,
+    "before": {
+      "count": 2633,
+      "unix_seconds": 1794419373.0765975,
+      "monotonic_seconds": 14146.01814995,
+      "poll_ms": 21.039299999756622,
+      "url": "http://127.0.0.1:18080/actuator/metrics/http.server.requests?tag=uri%3A%2Fwork%2Fvirtual",
+      "response": {
+        "name": "http.server.requests",
+        "baseUnit": "seconds",
+        "measurements": [
+          {
+            "statistic": "COUNT",
+            "value": 2633.0
+          },
+          {
+            "statistic": "TOTAL_TIME",
+            "value": 1084.0697814
+          },
+          {
+            "statistic": "MAX",
+            "value": 0.4195243
+          }
+        ],
+        "availableTags": [
+          {
+            "tag": "exception",
+            "values": [
+              "none"
+            ]
+          },
+          {
+            "tag": "method",
+            "values": [
+              "GET"
+            ]
+          },
+          {
+            "tag": "error",
+            "values": [
+              "none"
+            ]
+          },
+          {
+            "tag": "outcome",
+            "values": [
+              "SUCCESS"
+            ]
+          },
+          {
+            "tag": "status",
+            "values": [
+              "200"
+            ]
+          }
+        ]
+      }
+    },
+    "after": {
+      "count": 4985,
+      "unix_seconds": 1794419383.0971906,
+      "monotonic_seconds": 14156.03874265,
+      "poll_ms": 19.975700000941288,
+      "url": "http://127.0.0.1:18080/actuator/metrics/http.server.requests?tag=uri%3A%2Fwork%2Fvirtual",
+      "response": {
+        "name": "http.server.requests",
+        "baseUnit": "seconds",
+        "measurements": [
+          {
+            "statistic": "COUNT",
+            "value": 4985.0
+          },
+          {
+            "statistic": "TOTAL_TIME",
+            "value": 2040.9218893
+          },
+          {
+            "statistic": "MAX",
+            "value": 0.4195243
+          }
+        ],
+        "availableTags": [
+          {
+            "tag": "exception",
+            "values": [
+              "none"
+            ]
+          },
+          {
+            "tag": "method",
+            "values": [
+              "GET"
+            ]
+          },
+          {
+            "tag": "error",
+            "values": [
+              "none"
+            ]
+          },
+          {
+            "tag": "outcome",
+            "values": [
+              "SUCCESS"
+            ]
+          },
+          {
+            "tag": "status",
+            "values": [
+              "200"
+            ]
+          }
+        ]
+      }
+    },
+    "window_seconds": 10.020592700000634,
+    "requests": 2352,
+    "requests_per_second": 234.71665503377372,
+    "jmeter": {
+      "total": 9458,
+      "failures": 0,
+      "window_count": 2347,
+      "window_p95_ms": 416
+    }
+  },
+  "grafana_from_ms": 1794419296969,
+  "grafana_to_ms": 1794419410661
+}
